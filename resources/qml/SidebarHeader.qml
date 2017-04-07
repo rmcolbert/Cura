@@ -306,6 +306,28 @@ Column
 
             UM.SimpleButton
             {
+                id: speedIcon
+
+                height: parent.height * 0.75
+                width: parent.height * 0.75
+
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: customisedSettings.left
+                anchors.rightMargin: UM.Theme.getSize("default_margin").width
+
+                iconSource: {
+                    UM.Theme.getIcon(Cura.MachineManager.activeQualityName + "_speed_icon");
+                }
+
+                onEntered:
+                {
+                    var content = catalog.i18nc("@tooltip","Your qualityprofile has an impact on the printspeed.\n\nA lower quality makes printing faster.")
+                    base.showTooltip(globalProfileRow, Qt.point(0, globalProfileRow.height / 2),  content)
+                }
+            }
+
+            UM.SimpleButton
+            {
                 id: customisedSettings
 
                 visible: Cura.MachineManager.hasUserSettings
