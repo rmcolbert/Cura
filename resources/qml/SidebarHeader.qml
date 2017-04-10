@@ -316,7 +316,7 @@ Column
                 anchors.rightMargin: UM.Theme.getSize("default_margin").width
 
                 iconSource: {
-                    UM.Theme.getIcon(Cura.MachineManager.activeQualityName + "_speed_icon");
+                    UM.Theme.getIcon("speed_icon_" + Cura.MachineManager.activeQualityName);
                 }
 
                 onEntered:
