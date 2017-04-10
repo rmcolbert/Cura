@@ -308,8 +308,8 @@ Column
             {
                 id: speedIcon
 
-                height: parent.height * 0.75
-                width: parent.height * 0.75
+                height: parent.height * 0.9
+                width: parent.height * 0.9
 
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: customisedSettings.left
