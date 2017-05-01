@@ -127,6 +127,16 @@ Item
                     } else {
                         view_settings.show_legend = false;
                     }
+
+                    typesLegenModelNoCheck.clear();
+                    typesLegenModelNoCheck.append({
+                        label: catalog.i18nc("@label", "Top / Bottom"),
+                        colorId:  "layerview_skin"
+                    });
+                    typesLegenModelNoCheck.append({
+                        label: catalog.i18nc("@label", "Inner Wall"),
+                        colorId:  "layerview_inset_x"
+                    });
                 }
             }
 
@@ -284,6 +294,7 @@ Item
 
                 Label {
                     text: label
+                    visible: (UM.Preferences.getValue("layerview/layer_view_type") != 0) && view_settings.show_legend
                     Rectangle {
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
@@ -292,7 +303,7 @@ Item
                         color: UM.Theme.getColor(model.colorId)
                         border.width: UM.Theme.getSize("default_lining").width
                         border.color: UM.Theme.getColor("lining")
-                        visible: view_settings.show_legend
+                        visible: (UM.Preferences.getValue("layerview/layer_view_type") != 0) && view_settings.show_legend
                     }
                     Layout.fillWidth: true
                     Layout.preferredHeight: UM.Theme.getSize("layerview_row").height + UM.Theme.getSize("default_lining").height
